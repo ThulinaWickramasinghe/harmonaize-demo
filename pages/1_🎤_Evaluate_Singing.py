@@ -1,5 +1,5 @@
 import streamlit as st
-# import tensorflow as tf
+import tensorflow as tf
 
 st.set_page_config(page_title="Evaluate Singing", page_icon="\🎤")
 
@@ -18,5 +18,5 @@ if uploaded_file is not None:
 st.write('Preview uploaded voice recording')
 st.audio(uploaded_file, format="audio/mpeg", loop=False)
 
-# model = tf.keras.models.load_model('../model_weights/harmonAize_weights.h5')
-# print(model)
+model = tf.keras.models.load_model('../model_weights/harmonAize_weights.h5')
+print(model)
