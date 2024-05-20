@@ -1,5 +1,8 @@
 import streamlit as st
 import tensorflow as tf
+# from numpy import random
+
+# x = random.randint(0,10)
 
 st.set_page_config(page_title="Evaluate Singing", page_icon="\🎤")
 
@@ -14,9 +17,8 @@ if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
     st.write("filename:", uploaded_file.name)
+    st.write('Preview uploaded voice recording')
+    st.audio(uploaded_file, format="audio/mpeg", loop=False)
 
-st.write('Preview uploaded voice recording')
-st.audio(uploaded_file, format="audio/mpeg", loop=False)
-
-model = tf.keras.models.load_model('../model_weights/harmonAize_weights.h5')
-print(model)
+model = tf.keras.models.load_model('./model_weights/harmonAIze_weights.h5')
+st.write(model.summary())
